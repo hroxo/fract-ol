@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   util.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 21:02:17 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/28 22:24:48 by hroxo            ###   ########.fr       */
+/*   Created: 2025/10/28 21:21:53 by hroxo             #+#    #+#             */
+/*   Updated: 2025/10/28 22:28:02 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/home/hroxo/lib/libft.h"
+#ifndef UTIL_H
+# define UTIL_H
 
-int	main(int argc, char **argv)
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
+# include "../minilibx-linux/mlx.h"
+
+typedef struct mlx
 {
-	if (2 != argc)
-	{
-		ft_printf("Erro input add parameter");
-		return (1);
-	}
-	return (0);
-}
+	void	*window;
+	void	*context;
+	int		width;
+	int		height;
+	double	delta_time;
+}	t_mlx;
+
+#endif
