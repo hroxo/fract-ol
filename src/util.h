@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 21:21:53 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/28 22:28:02 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/29 11:38:54 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <unistd.h>
 # include "../minilibx-linux/mlx.h"
 
+# define WIDTH 512
+# define HEIGHT 512
+
 typedef struct mlx
 {
 	void	*window;
@@ -27,4 +30,9 @@ typedef struct mlx
 	double	delta_time;
 }	t_mlx;
 
+typedef struct mlx_data
+{
+	void	*mlx_ptr;
+	void	*mlx_win;
+}	t_mlx_data;
 #endif
