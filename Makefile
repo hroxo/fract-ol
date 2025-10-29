@@ -6,7 +6,7 @@
 #    By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 22:22:06 by hroxo             #+#    #+#              #
-#    Updated: 2025/10/29 09:31:19 by hroxo            ###   ########.fr        #
+#    Updated: 2025/10/29 13:18:15 by hroxo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBFT_DIR=/home/hroxo/lib
 LIBFT= $(LIBFT_DIR)/libft.a
 FLAGS_MLX42= -ldl -lglfw -pthread -lm -lXext -lX11 -lXrandr -lXi -lXcursor -lXrender -lXfixes
 # caso isto te esteja a dar errado coloca -lglfw(3)
-MLX42=minilibx-linux/libmlx.a
+MLX42=minilibx-linux/libmlx_Linux.a
 INC= -I src
 
 SRC= $(shell find ./src -name "*.c")
