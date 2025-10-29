@@ -6,13 +6,12 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 21:02:17 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/29 11:42:49 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/29 11:50:18 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "/home/hroxo/lib/libft.h"
 #include "util.h"
-#include <stdlib.h>
 
 int	encode_color(unsigned char r, unsigned char g, unsigned char b)
 {
