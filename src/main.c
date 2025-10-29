@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 21:02:17 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/29 11:39:59 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/29 11:42:49 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ void	color_screen(t_mlx_data *data, int color)
 	int	y;
 	int	x;
 	
-	y = 0;
-	while (y < HEIGHT)
+	y = HEIGHT/4;
+	while (y < 3 * HEIGHT/4)
 	{
-		x = 0;
-		while (x < WIDTH)
+		x = WIDTH/4;
+		while (x < 3 * WIDTH/4)
 		{
 			mlx_pixel_put(data->mlx_ptr, data->mlx_win, x, y, color);
 			x++;
