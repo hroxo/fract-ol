@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 21:21:53 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/29 19:20:11 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/29 21:34:05 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,36 @@
 # define HEIGHT 1080
 # define ER_M "Please enter\n./fractol mandelbrot or \n./fractol julia <z> <c>"
 
-typedef struct s_fractal
+typedef struct s_img
 {
-	void	*mlx_ptr;
-	void	*mlx_win;
-	void	*img;
+	void	*img_ptr;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}	t_fractal;
+
+}	t_img;
+
+typedef struct s_Zvalue
+{
+	double	real;
+	double	i;
+}	t_Zvalue;
+
+// typedef enum s_hooks
+// {
+// 	int	mouse_wheel_up;
+// }	t_hooks;
+typedef struct s_fractol
+{
+	char		*name;
+	void		*mlx_ptr;
+	void		*mlx_win;
+	t_img		img;
+	t_Zvalue	z;
+	//Hooks
+}	t_fractol;
+
+void	init_fractol(t_fractol *fractol);
 
 #endif
