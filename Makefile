@@ -6,7 +6,7 @@
 #    By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 22:22:06 by hroxo             #+#    #+#              #
-#    Updated: 2025/10/28 22:22:14 by hroxo            ###   ########.fr        #
+#    Updated: 2025/10/29 09:31:19 by hroxo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS= -Wall -Werror -Wextra
 
 LIBFT_DIR=/home/hroxo/lib
 LIBFT= $(LIBFT_DIR)/libft.a
-FLAGS_MLX42= -ldl -lglfw -pthread -lm
+FLAGS_MLX42= -ldl -lglfw -pthread -lm -lXext -lX11 -lXrandr -lXi -lXcursor -lXrender -lXfixes
 # caso isto te esteja a dar errado coloca -lglfw(3)
 MLX42=minilibx-linux/libmlx.a
 INC= -I src
@@ -29,7 +29,7 @@ RM= rm -rf
 all: $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(INC) $(MLX42) $(FLAGS_MLX42) $(LIBFT) -c $< -o $@
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(INC) $(OBJ) $(LIBFT) $(MLX42) $(FLAGS_MLX42) -o $(NAME)
