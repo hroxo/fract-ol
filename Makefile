@@ -6,13 +6,13 @@
 #    By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 22:22:06 by hroxo             #+#    #+#              #
-#    Updated: 2025/10/29 13:18:15 by hroxo            ###   ########.fr        #
+#    Updated: 2025/10/30 10:57:08 by hroxo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=fractol
 CC=cc
-CFLAGS= -Wall -Werror -Wextra
+CFLAGS= -Wall -Werror -Wextra -g
 
 LIBFT_DIR=/home/hroxo/lib
 LIBFT= $(LIBFT_DIR)/libft.a
