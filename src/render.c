@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 10:52:00 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/30 12:36:12 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/30 13:05:54 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ static void	paint(t_fractol *data)
 	int	x;
 	int	y;
 	t_Zvalue	c;
+	int	i;
 
+	i = 0;
 	y = 0;
 	while (y <= HEIGHT)
 	{
@@ -45,11 +47,8 @@ static void	paint(t_fractol *data)
 		{
 			c.real = pixel_to_cord((double)x, 2, -2, WIDTH, 0);
 			c.i = pixel_to_cord((double)y, 2, -2, HEIGHT, 0);
-			if (is_fractol(c))
-				my_mlx_pixel_put(data, x, y,
-					encode_color(0xff, 0, 0));
-			else
-				my_mlx_pixel_put(data, x, y, encode_color(0, 0, 0xff));
+			is_fractol(c, &i);
+			my_mlx_pixel_put(data, x, y, encode_color(255/i, 0xff/i, 0xff/i));
 			x++;
 		}
 		y++;

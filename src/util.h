@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 21:21:53 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/30 12:37:06 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/30 12:46:13 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ int		handle_mouse_input(int button, int x, int y, t_fractol *fractol);
 int		handle_key_input(int keysym, t_fractol *fractol);
 //DL ME
 void	color_screen(t_fractol *data);
-int	is_fractol(t_Zvalue c);
+int	is_fractol(t_Zvalue c, int *i);
 
 #endif
