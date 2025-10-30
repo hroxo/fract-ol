@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 21:11:43 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/30 11:11:12 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/30 12:01:32 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@ static void	hooks(t_fractol *fractol)
 	mlx_key_hook(fractol->mlx_win, handle_key_input, fractol);
 	mlx_hook(fractol->mlx_win, 17, 0, clicked_cross, fractol);
 	mlx_mouse_hook(fractol->mlx_win, handle_mouse_input, fractol);
-}
-
-int encode_color(unsigned char r, unsigned char g, unsigned char b)
-{
-	return (r << 16 | g << 8 | b);
 }
 
 void	init_fractol(t_fractol *fractol)
@@ -41,6 +36,6 @@ void	init_fractol(t_fractol *fractol)
 			&fractol->img.bits_per_pixel,
 			&fractol->img.line_length,
 			&fractol->img.endian);
-	color_screen(fractol, encode_color(255, 0, 0)); //DLME
+	color_screen(fractol); //DLME
 	hooks(fractol);
 }

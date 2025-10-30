@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 21:21:53 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/30 10:55:22 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/30 12:37:06 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ typedef struct s_fractol
 	void		*mlx_ptr;
 	void		*mlx_win;
 	t_img		img;
-	t_Zvalue	z;
 	//Hooks
 }	t_fractol;
 
@@ -63,6 +62,7 @@ int		clicked_cross(t_fractol *fractol);
 int		handle_mouse_input(int button, int x, int y, t_fractol *fractol);
 int		handle_key_input(int keysym, t_fractol *fractol);
 //DL ME
-void	color_screen(t_fractol *data, int color);
+void	color_screen(t_fractol *data);
+int	is_fractol(t_Zvalue c);
 
 #endif
