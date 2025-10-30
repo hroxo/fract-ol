@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 21:21:53 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/30 12:46:13 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/30 19:46:55 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ typedef struct s_img
 
 }	t_img;
 
-typedef struct s_Zvalue
+typedef struct s_complex
 {
 	double	real;
 	double	i;
-}	t_Zvalue;
+}	t_complex;
 
 typedef enum s_hooks
 {
@@ -63,6 +63,10 @@ int		handle_mouse_input(int button, int x, int y, t_fractol *fractol);
 int		handle_key_input(int keysym, t_fractol *fractol);
 //DL ME
 void	color_screen(t_fractol *data);
-int	is_fractol(t_Zvalue c, int *i);
+int	is_fractol(t_complex c, int *i);
+int	encode_color(unsigned char r, unsigned char g, unsigned char b);
+double	pixel_to_cord(double value, double new_max,
+		double new_min, double old_max);
+void	calc_z(t_complex *z, t_complex *c);
 
 #endif
