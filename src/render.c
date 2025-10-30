@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 10:52:00 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/30 11:11:36 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/30 11:21:19 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	paint(t_fractol *data, int color)
 	int	x;
 	int	y;
 
-	y = HEIGHT;
+	y = 0;
 	while (y <= HEIGHT)
 	{
 		x = 0;
