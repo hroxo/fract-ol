@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 21:11:43 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/30 12:01:32 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/30 22:37:19 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static void	hooks(t_fractol *fractol)
 
 void	init_fractol(t_fractol *fractol)
 {
-	fractol->name = "fractol";
 	fractol->mlx_ptr = mlx_init();
 	if (NULL == fractol->mlx_ptr)
 		malloc_error(0, fractol);

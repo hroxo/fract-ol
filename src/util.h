@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 21:21:53 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/30 19:46:55 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/30 22:40:24 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,20 @@ typedef enum s_hooks
 	SCROLL_DW = 5
 }	t_hooks;
 
+typedef struct s_bound
+{
+	double	max;
+	double	min;
+}	t_bound;
+
 typedef struct s_fractol
 {
 	char		*name;
 	void		*mlx_ptr;
 	void		*mlx_win;
 	t_img		img;
-	//Hooks
+	//HooksA
+	t_bound		bound;
 }	t_fractol;
 
 void	init_fractol(t_fractol *fractol);
@@ -65,8 +72,7 @@ int		handle_key_input(int keysym, t_fractol *fractol);
 void	color_screen(t_fractol *data);
 int		is_fractol(t_complex c, int *i);
 int		encode_color(unsigned char r, unsigned char g, unsigned char b);
-double	pixel_to_cord(double value, double new_max,
-			double new_min, double old_max);
 void	calc_z(t_complex *z, t_complex *c);
+double	pixel_to_cord(double value, t_fractol *fractol, double old_max);
 
 #endif

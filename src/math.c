@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 19:38:25 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/30 19:53:25 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/30 22:41:53 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@ int	encode_color(unsigned char r, unsigned char g, unsigned char b)
 	return (r << 16 | g << 8 | b);
 }
 
-double	pixel_to_cord(double value, double new_max,
-		double new_min, double old_max)
+double	pixel_to_cord(double value, t_fractol *fractol, double old_max)
 {
-	return ((new_max - new_min) * value / old_max + new_min);
+	return ((fractol->bound.max - fractol->bound.min) * value / old_max + fractol->bound.min);
 }
 
 void	calc_z(t_complex *z, t_complex *c)

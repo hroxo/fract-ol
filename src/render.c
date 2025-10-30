@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 10:52:00 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/30 20:08:29 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/30 22:51:27 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,18 @@ static void	loop(t_complex *c, t_fractol *fractol, int x, int y)
 	t_complex	z;
 	int			i;
 
-	i = 0;
+	c->real = pixel_to_cord((double)x, fractol, WIDTH);
+	c->i = pixel_to_cord((double)y, fractol, HEIGHT);
+	i = 1;
 	z.i = 0;
 	z.real = 0;
-	i = 1;
 	while (i < 50)
 	{
 		calc_z(&z, c);
-		if ((z.real * z.real) + (z.i * z.i) > 4)
+		if ((z.real * z.real) + (z.i * z.i) > (fractol->bound.max * fractol->bound.max))
 		{
 			my_mlx_pixel_put(fractol, x, y,
-				encode_color(255 / i, 0xff / i, 0xff));
+				encode_color(255, 0xff, 0xff));
 			return ;
 		}
 		i++;
@@ -56,8 +57,6 @@ static void	paint(t_fractol *fractol)
 		x = 0;
 		while (x < WIDTH)
 		{
-			c.real = pixel_to_cord((double)x, 2, -2, WIDTH);
-			c.i = pixel_to_cord((double)y, 2, -2, HEIGHT);
 			loop(&c, fractol, x, y);
 			x++;
 		}
