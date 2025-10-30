@@ -16,14 +16,15 @@ static void	my_mlx_pixel_put(t_fractol *fractol, int x, int y, int color)
 {
 	char	*offset;
 
-	offset = fractol->img.addr + (y * fractol->img.line_length + x * (fractol->img.bits_per_pixel / 8));
+	offset = fractol->img.addr + (y * fractol->img.line_length)
+		+ x * (fractol->img.bits_per_pixel / 8);
 	*(unsigned int *)offset = color;
 }
 
 static void	loop(t_complex *c, t_fractol *fractol, int x, int y)
 {
 	t_complex	z;
-	int	i;
+	int			i;
 
 	i = 0;
 	z.i = 0;
@@ -34,7 +35,8 @@ static void	loop(t_complex *c, t_fractol *fractol, int x, int y)
 		calc_z(&z, c);
 		if ((z.real * z.real) + (z.i * z.i) > 4)
 		{
-			my_mlx_pixel_put(fractol, x, y, encode_color(255 / i, 0xff / i, 0xff));
+			my_mlx_pixel_put(fractol, x, y,
+				encode_color(255 / i, 0xff / i, 0xff));
 			return ;
 		}
 		i++;
@@ -66,5 +68,6 @@ static void	paint(t_fractol *fractol)
 void	color_screen(t_fractol *fractol)
 {
 	paint(fractol);
-	mlx_put_image_to_window(fractol->mlx_ptr, fractol->mlx_win, fractol->img.img_ptr, 0, 0);
+	mlx_put_image_to_window(fractol->mlx_ptr, fractol->mlx_win,
+		fractol->img.img_ptr, 0, 0);
 }

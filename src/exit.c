@@ -16,13 +16,13 @@ void	malloc_error(int flag, t_fractol *fractol)
 {
 	if (0 == flag)
 		perror("Error Iniciatilizing MLX");
-	else if (1 == flag) //Error with new_window
+	else if (1 == flag)
 	{
 		mlx_destroy_display(fractol->mlx_ptr);
 		free(fractol->mlx_ptr);
 		perror("Error Iniciatilizing Window");
 	}
-	else if (2 == flag) //Error with new_image
+	else if (2 == flag)
 	{
 		mlx_destroy_window(fractol->mlx_ptr, fractol->mlx_win);
 		mlx_destroy_display(fractol->mlx_ptr);

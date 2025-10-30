@@ -63,10 +63,10 @@ int		handle_mouse_input(int button, int x, int y, t_fractol *fractol);
 int		handle_key_input(int keysym, t_fractol *fractol);
 //DL ME
 void	color_screen(t_fractol *data);
-int	is_fractol(t_complex c, int *i);
-int	encode_color(unsigned char r, unsigned char g, unsigned char b);
+int		is_fractol(t_complex c, int *i);
+int		encode_color(unsigned char r, unsigned char g, unsigned char b);
 double	pixel_to_cord(double value, double new_max,
-		double new_min, double old_max);
+			double new_min, double old_max);
 void	calc_z(t_complex *z, t_complex *c);
 
 #endif

@@ -36,6 +36,6 @@ void	init_fractol(t_fractol *fractol)
 			&fractol->img.bits_per_pixel,
 			&fractol->img.line_length,
 			&fractol->img.endian);
-	color_screen(fractol); //DLME
+	color_screen(fractol);
 	hooks(fractol);
 }
