@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 21:11:43 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/30 22:37:19 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/31 09:47:38 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ void	init_fractol(t_fractol *fractol)
 			&fractol->img.bits_per_pixel,
 			&fractol->img.line_length,
 			&fractol->img.endian);
-	color_screen(fractol);
 	hooks(fractol);
+	render_fractol(fractol);
 }

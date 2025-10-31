@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 20:51:20 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/31 08:49:52 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/31 09:59:51 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static void	init_basics(t_fractol *fractol, int flag)
 	fractol->bound.max = 2;
 	fractol->bound.min = -2;
 	fractol->bound.esc = fractol->bound.max;
+	fractol->bound.iter = 50;
 	if (!flag)
 		fractol->name = "fractol";
 	else
