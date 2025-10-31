@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 21:21:53 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/31 09:57:16 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/31 12:01:34 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ typedef struct s_fractol
 	t_bound		bound;
 }	t_fractol;
 
-void	init_fractol(t_fractol *fractol);
+void	init_fractol(t_fractol *fractol, int flag);
 void	drop_pane(int flag, t_fractol *fractol);
 void	malloc_error(int flag, t_fractol *fractol);
 int		clicked_cross(t_fractol *fractol);
@@ -75,6 +75,6 @@ void	render_fractol(t_fractol *data);
 int		is_fractol(t_complex c, int *i);
 int		encode_color(unsigned char r, unsigned char g, unsigned char b);
 void	calc_z(t_complex *z, t_complex *c);
-double	pixel_to_cord(double value, t_fractol *fractol, double old_max);
+double	map_values(double value, t_fractol *fractol, double old_max);
 
 #endif

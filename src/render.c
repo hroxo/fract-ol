@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 10:52:00 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/31 09:54:10 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/31 12:07:29 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ static void	my_mlx_pixel_put(t_fractol *fractol, int x, int y, int color)
 	*(unsigned int *)offset = color;
 }
 
-static void	loop(t_complex *c, t_fractol *fractol, int x, int y)
+static void	ft_mandelbrot(t_complex *c, t_fractol *fractol, int x, int y)
 {
 	t_complex	z;
 	int			i;
-
-	c->real = pixel_to_cord((double)x, fractol, WIDTH);
-	c->i = pixel_to_cord((double)y, fractol, HEIGHT);
+	c->real = map_values((double)x, fractol, WIDTH);
+	c->i = map_values((double)y, fractol, HEIGHT);
 	i = 0;
 	z.i = 0;
 	z.real = 0;
@@ -38,18 +37,16 @@ static void	loop(t_complex *c, t_fractol *fractol, int x, int y)
 			> (fractol->bound.esc * fractol->bound.esc))
 		{
 			my_mlx_pixel_put(fractol, x, y,
-				encode_color(i * i, i * i, i * i * i));
+					encode_color(i, i * i, i * i * i));
 			return ;
 		}
-		else 
-			my_mlx_pixel_put(fractol, x, y,
-				encode_color(0, 0, 0));
 		i++;
 	}
-	return ;
+	my_mlx_pixel_put(fractol, x, y,
+			encode_color(0xff/8, 0, 0xff/8));
 }
 
-static void	paint(t_fractol *fractol)
+void	render_fractol(t_fractol *fractol)
 {
 	int			x;
 	int			y;
@@ -61,16 +58,11 @@ static void	paint(t_fractol *fractol)
 		x = 0;
 		while (x < WIDTH)
 		{
-			loop(&c, fractol, x, y);
+			ft_mandelbrot(&c, fractol, x, y);
 			x++;
 		}
 		y++;
 	}
-}
-
-void	render_fractol(t_fractol *fractol)
-{
-	paint(fractol);
 	mlx_put_image_to_window(fractol->mlx_ptr, fractol->mlx_win,
 		fractol->img.img_ptr, 0, 0);
 }

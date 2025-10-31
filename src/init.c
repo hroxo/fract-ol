@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 21:11:43 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/31 09:47:38 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/31 11:55:12 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,21 @@ static void	hooks(t_fractol *fractol)
 	mlx_mouse_hook(fractol->mlx_win, handle_mouse_input, fractol);
 }
 
-void	init_fractol(t_fractol *fractol)
+static void	data_init(t_fractol *fractol, int flag)
 {
+	fractol->bound.max = 2;
+	fractol->bound.min = -2;
+	fractol->bound.esc = fractol->bound.max;
+	fractol->bound.iter = 50;
+	if (!flag)
+		fractol->name = "fractol";
+	else
+		fractol->name = "julia";
+}
+
+void	init_fractol(t_fractol *fractol, int flag)
+{
+	data_init(fractol, flag);
 	fractol->mlx_ptr = mlx_init();
 	if (NULL == fractol->mlx_ptr)
 		malloc_error(0, fractol);
