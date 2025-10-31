@@ -19,7 +19,8 @@ int	encode_color(unsigned char r, unsigned char g, unsigned char b)
 
 double	pixel_to_cord(double value, t_fractol *fractol, double old_max)
 {
-	return ((fractol->bound.max - fractol->bound.min) * value / old_max + fractol->bound.min);
+	return ((fractol->bound.max - fractol->bound.min)
+		* value / old_max + fractol->bound.min);
 }
 
 void	calc_z(t_complex *z, t_complex *c)

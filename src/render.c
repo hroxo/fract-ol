@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 10:52:00 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/30 22:51:27 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/31 08:54:56 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static void	my_mlx_pixel_put(t_fractol *fractol, int x, int y, int color)
 	*(unsigned int *)offset = color;
 }
 
+void	frac_recursion(t_complex *c, t_complex *z, int *i, t_fractol *fractol)
+
 static void	loop(t_complex *c, t_fractol *fractol, int x, int y)
 {
 	t_complex	z;
@@ -34,10 +36,11 @@ static void	loop(t_complex *c, t_fractol *fractol, int x, int y)
 	while (i < 50)
 	{
 		calc_z(&z, c);
-		if ((z.real * z.real) + (z.i * z.i) > (fractol->bound.max * fractol->bound.max))
+		if ((z.real * z.real) + (z.i * z.i)
+			> (fractol->bound.esc * fractol->bound.esc))
 		{
 			my_mlx_pixel_put(fractol, x, y,
-				encode_color(255, 0xff, 0xff));
+				encode_color(i * i, i * i, i * i * i));
 			return ;
 		}
 		i++;

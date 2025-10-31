@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 21:21:53 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/30 22:40:24 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/31 08:49:00 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_bound
 {
 	double	max;
 	double	min;
+	double	esc;
 }	t_bound;
 
 typedef struct s_fractol
