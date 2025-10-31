@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 21:11:43 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/31 12:20:31 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/10/31 15:00:00 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,19 @@ static void	hooks(t_fractol *fractol)
 	mlx_mouse_hook(fractol->mlx_win, handle_mouse_input, fractol);
 }
 
-void	data_init(t_fractol *fractol, int flag)
+void	data_init(t_fractol *fractol)
 {
 	fractol->bound.max = 2;
 	fractol->bound.min = -2;
 	fractol->bound.esc = fractol->bound.max;
-	fractol->bound.iter = 50;
-	if (!flag)
-		fractol->name = "fractol";
-	else
-		fractol->name = "julia";
+	fractol->bound.iter = 100;
+	fractol->bound.y_shift = 0;
+	fractol->bound.x_shift = 0;
 }
 
-void	init_fractol(t_fractol *fractol, int flag)
+void	init_fractol(t_fractol *fractol)
 {
-	data_init(fractol, flag);
+	data_init(fractol);
 	fractol->mlx_ptr = mlx_init();
 	if (NULL == fractol->mlx_ptr)
 		malloc_error(0, fractol);
@@ -49,5 +47,4 @@ void	init_fractol(t_fractol *fractol, int flag)
 			&fractol->img.line_length,
 			&fractol->img.endian);
 	hooks(fractol);
-	render_fractol(fractol);
 }
