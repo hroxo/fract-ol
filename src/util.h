@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:28:59 by hroxo             #+#    #+#             */
-/*   Updated: 2025/11/03 11:11:19 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/11/03 12:32:02 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include "../minilibx-linux/mlx.h"
 # include "/home/hroxo/lib/libft.h"
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 1920
+# define HEIGHT 1080
 # define ER_M "Wrong input use --help to view options\n"
 
 typedef struct s_img
@@ -62,6 +62,7 @@ typedef struct s_bound
 	double	x_shift;
 	double	y_shift;
 	int		iter;
+	double	zoom;
 }	t_bound;
 
 typedef struct s_fractol
@@ -72,6 +73,8 @@ typedef struct s_fractol
 	t_img		img;
 	//HooksA
 	t_bound		bound;
+	double		julia_x;
+	double		julia_y;
 }	t_fractol;
 
 void	init_fractol(t_fractol *fractol);
@@ -89,5 +92,6 @@ void	data_init(t_fractol *fractol);
 void	ft_mandelbrot(t_complex *c, t_fractol *fractol, int x, int y);
 void	display_help(void);
 int get_color(t_fractol *fractol, int iter, int max_iter);
+double	atodl(char *s);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 09:19:23 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/31 15:23:26 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/11/03 12:27:53 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	drop_pane(int flag, t_fractol *fractol)
 	fractol->img.img_ptr = NULL;
 	fractol->img.addr = NULL;
 	free(fractol->mlx_ptr);
-	free(fractol->name);
 	exit(1);
 }
 

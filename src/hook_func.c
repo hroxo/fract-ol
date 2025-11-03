@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 10:04:48 by hroxo             #+#    #+#             */
-/*   Updated: 2025/11/03 11:12:43 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/11/03 12:13:02 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,20 @@ int	handle_key_input(int keysym, t_fractol *fractol)
 	else if (keysym == Q)
 		data_init(fractol);
 	else if (keysym == A_UP)
-		fractol->bound.y_shift -= 0.1;
+		fractol->bound.y_shift -= (0.5 * fractol->bound.zoom);
 	else if (keysym == A_DW)
-		fractol->bound.y_shift += 0.1;
+		fractol->bound.y_shift += (0.5 * fractol->bound.zoom);
 	else if (keysym == A_RH)
-		fractol->bound.x_shift += 0.1;
+		fractol->bound.x_shift += (0.5 * fractol->bound.zoom);
 	else if (keysym == A_LF)
-		fractol->bound.x_shift -= 0.1;
+		fractol->bound.x_shift -= (0.5 * fractol->bound.zoom);
 	render_fractol(fractol);
 	return (0);
 }
 
-double	update_axis(int axis_mouse, t_fractol *fractol)
+double	update_axis(int axis_mouse, t_fractol *fractol, int side)
 {
-	return (map_values(axis_mouse, fractol, WIDTH));
+	return (map_values(axis_mouse, fractol, side));
 }
 
 int	handle_mouse_input(
@@ -40,18 +40,16 @@ int	handle_mouse_input(
 {
 	if (SCROLL_UP == button)
 	{
-		fractol->bound.x_shift += update_axis(xaxis_mouse, fractol);
-		fractol->bound.y_shift += update_axis(yaxis_mouse, fractol);
-		fractol->bound.min /= 2;
-		fractol->bound.max /= 2;
+		fractol->bound.x_shift += update_axis(xaxis_mouse, fractol, WIDTH);
+		fractol->bound.y_shift += update_axis(yaxis_mouse, fractol, HEIGHT);
+		fractol->bound.zoom /= 2;
 		fractol->bound.iter += 25;
 	}
 	else if (SCROLL_DW == button)
 	{
-		fractol->bound.x_shift -= update_axis(xaxis_mouse, fractol);
-		fractol->bound.y_shift -= update_axis(yaxis_mouse, fractol);
-		fractol->bound.min *= 2;
-		fractol->bound.max *= 2;
+		fractol->bound.x_shift -= update_axis(xaxis_mouse, fractol, WIDTH);
+		fractol->bound.y_shift -= update_axis(yaxis_mouse, fractol, HEIGHT);
+		fractol->bound.zoom *= 2;
 		fractol->bound.iter -= 25;
 	}
 	else if (MOUSE_RH == button)
