@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 20:51:20 by hroxo             #+#    #+#             */
-/*   Updated: 2025/11/03 15:11:12 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/11/03 15:56:40 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char **argv)
 		{
 			fractol.julia_x = atodl(argv[2]);
 			fractol.julia_y = atodl(argv[3]);
+			printf("%f\n%f\n", atodl(argv[2]), atodl(argv[3]));
 		}
 		render_fractol(&fractol);
 		mlx_loop(fractol.mlx_ptr);

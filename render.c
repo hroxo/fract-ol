@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 10:52:00 by hroxo             #+#    #+#             */
-/*   Updated: 2025/11/03 15:12:42 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/11/03 15:57:29 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,8 @@ void	ft_julia(t_complex *c, t_fractol *fractol, int x, int y)
 	while (i < fractol->bound.iter)
 	{
 		calc_z(&z, c);
-		z.i = -1;
 		if ((z.real * z.real) + (z.i * z.i)
-			< (fractol->bound.esc * fractol->bound.esc))
+			> (fractol->bound.esc * fractol->bound.esc))
 		{
 			my_mlx_pixel_put(fractol, x, y,
 				encode_color(i * i, i, i * i / fractol->bound.iter));
