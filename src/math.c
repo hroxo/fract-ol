@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 19:38:25 by hroxo             #+#    #+#             */
-/*   Updated: 2025/11/03 14:33:04 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/11/03 14:50:33 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,35 @@ void	calc_z(t_complex *z, t_complex *c)
 	z->real = temp_z;
 }
 
+long	ft_atoii(char *s, size_t *i, int *sig)
+{
+	size_t	j;
+	long	i_part;
+
+	i_part = 0;
+	j = *i;
+	if (s[j] == '-' || s[j] == '+')
+	{
+		if (s[j] == '-')
+			*sig = -1;
+		j++;
+	}
+	while (s[j] && (s[j] >= '0' && s[j] <= '9'))
+	{
+		i_part = (i_part * 10) + (s[j] - '0');
+		j++;
+	}
+	*i = j;
+	return (i_part);
+}
+
 double	atodl(char *s)
 {
 	double	pow;
 	long	i_part;
 	double	d_part;
 	size_t	i;
-	int	sig;
+	int		sig;
 
 	sig = 1;
 	pow = 1;
@@ -47,23 +69,13 @@ double	atodl(char *s)
 	i = 0;
 	while (s[i] && (s[i] == 32 || (s[i] <= 13 && s[i] >= 8)))
 		i++;
-	if (s[i] == '-' || s[i] == '+')
-	{
-		if (s[i] == '-')
-			sig = -1;
-		i++;
-	}
-	while (s[i] && s[i] != '.' && (s[i] >= '0' && s[i] <= '9'))
-	{
-		i_part = (i_part * 10) + (s[i] - '0');
-		i++;
-	}
+	i_part = ft_atoii(s, &i, &sig);
 	if (s[i] == '.')
 		i++;
 	while (s[i] && (s[i] >= '0' && s[i] <= '9'))
 	{
 		pow /= 10;
-		d_part += ((s[i] - '0')* pow);
+		d_part += ((s[i] - '0') * pow);
 		i++;
 	}
 	return ((d_part + i_part) * sig);

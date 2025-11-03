@@ -62,7 +62,6 @@ typedef struct s_bound
 	double	x_shift;
 	double	y_shift;
 	int		iter;
-	double	zoom;
 }	t_bound;
 
 typedef struct s_fractol
@@ -71,7 +70,6 @@ typedef struct s_fractol
 	void		*mlx_ptr;
 	void		*mlx_win;
 	t_img		img;
-	//HooksA
 	t_bound		bound;
 	double		julia_x;
 	double		julia_y;
@@ -84,14 +82,12 @@ int		clicked_cross(t_fractol *fractol);
 int		handle_mouse_input(int button, int x, int y, t_fractol *fractol);
 int		handle_key_input(int keysym, t_fractol *fractol);
 void	render_fractol(t_fractol *fractol);
-int		is_fractol(t_complex c, int *i);
 int		encode_color(unsigned char r, unsigned char g, unsigned char b);
 void	calc_z(t_complex *z, t_complex *c);
 double	map_values(double value, t_fractol *fractol, double old_max);
 void	data_init(t_fractol *fractol);
 void	ft_mandelbrot(t_complex *c, t_fractol *fractol, int x, int y);
 void	display_help(void);
-int get_color(t_fractol *fractol, int iter, int max_iter);
 double	atodl(char *s);
 
 #endif

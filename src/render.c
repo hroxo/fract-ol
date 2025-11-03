@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 10:52:00 by hroxo             #+#    #+#             */
-/*   Updated: 2025/11/03 14:36:47 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/11/03 15:00:59 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ void	ft_mandelbrot(t_complex *c, t_fractol *fractol, int x, int y)
 		if ((z.real * z.real) + (z.i * z.i)
 			> (fractol->bound.esc * fractol->bound.esc))
 		{
-			my_mlx_pixel_put(fractol, x, y, encode_color(i * i, i, i * i / fractol->bound.iter));
+			my_mlx_pixel_put(fractol, x, y,
+				encode_color(i * i, i, i * i / fractol->bound.iter));
 			return ;
 		}
 		i++;
@@ -50,8 +51,8 @@ void	ft_julia(t_complex *c, t_fractol *fractol, int x, int y)
 	t_complex	z;
 	int			i;
 
-	z.real = fractol->bound.zoom * map_values((double)x, fractol, WIDTH) + fractol->bound.x_shift;
-	z.i = fractol->bound.zoom * map_values((double)y, fractol, HEIGHT) + fractol->bound.y_shift;
+	z.real = map_values((double)x, fractol, WIDTH) + fractol->bound.x_shift;
+	z.i = map_values((double)y, fractol, HEIGHT) + fractol->bound.y_shift;
 	i = 0;
 	c->i = fractol->julia_y;
 	c->real = fractol->julia_x;
@@ -61,7 +62,8 @@ void	ft_julia(t_complex *c, t_fractol *fractol, int x, int y)
 		if ((z.real * z.real) + (z.i * z.i)
 			> (fractol->bound.esc * fractol->bound.esc))
 		{
-			my_mlx_pixel_put(fractol, x, y, encode_color(i * i, i, i * i / fractol->bound.iter));
+			my_mlx_pixel_put(fractol, x, y,
+				encode_color(i * i, i, i * i / fractol->bound.iter));
 			return ;
 		}
 		i++;
