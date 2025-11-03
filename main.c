@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 20:51:20 by hroxo             #+#    #+#             */
-/*   Updated: 2025/11/03 15:56:40 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/11/03 19:09:23 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 		display_help();
 	else
 	{
-		ft_printf("%s\n", ER_M);
+		ft_printf("%s", ER_M);
 		exit(1);
 	}
 	return (0);

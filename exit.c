@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 09:19:23 by hroxo             #+#    #+#             */
-/*   Updated: 2025/11/03 12:27:53 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/11/03 19:10:38 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ void	malloc_error(int flag, t_fractol *fractol)
 void	drop_pane(int flag, t_fractol *fractol)
 {
 	if (1 == flag)
-		ft_printf("Key ESC was pressef terminating the program\n");
+		ft_printf("Key ESC was pressed, stopping program\n");
 	else if (2 == flag)
-		ft_printf("User clicked in Cross, terminating the program\n");
+		ft_printf("User clicked in Cross, stopping program\n");
 	mlx_destroy_image(fractol->mlx_ptr, fractol->img.img_ptr);
 	mlx_destroy_window(fractol->mlx_ptr, fractol->mlx_win);
 	mlx_destroy_display(fractol->mlx_ptr);
@@ -62,9 +62,13 @@ void	display_help(void)
 		"To run the program please run:\n\n"
 		"\t./fractol mandelbrot\n"
 		"\t./fractol julia <value1> <value2>\n\n"
+		"\t./fractol tricorn\n\n"
 		"\tTo zoom in just scroll up\n"
 		"\tTo zoom out scroll down\n"
 		"\tTo retrieve to initial position just press Q\n"
+		"\tAnd to go around use arrow keys\n\n"
+		"\tIf you find yourself needing more quality just press RighClick on the Mouse\n\n"
+		"\tAnd if you find the program slow decrease quality by pressing LeftClick of the Mouse"
 		"\tTo leave either press Esc or the Cross on top\n\n"
 		"ENJOY :D\n";
 	ft_printf("%s", help);
