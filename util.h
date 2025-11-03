@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:28:59 by hroxo             #+#    #+#             */
-/*   Updated: 2025/11/03 13:33:06 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/11/03 15:32:03 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <math.h>
-# include "../minilibx-linux/mlx.h"
+# include "minilibx-linux/mlx.h"
 # include "/home/hroxo/lib/libft.h"
 
 # define WIDTH 800

@@ -6,7 +6,7 @@
 #    By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 22:22:06 by hroxo             #+#    #+#              #
-#    Updated: 2025/10/31 11:03:17 by hroxo            ###   ########.fr        #
+#    Updated: 2025/11/03 15:36:55 by hroxo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ FLAGS_MLX42= -ldl -lglfw -pthread -lm -lXext -lX11 -lXrandr -lXi -lXcursor -lXre
 MLX42=minilibx-linux/libmlx_Linux.a
 INC= -I src
 
-SRC= $(shell find ./src -name "*.c")
+SRC= exit.c hook_func.c init.c main.c math.c render.c 
 OBJ= $(SRC:.c=.o)
 
 RM= rm -rf
