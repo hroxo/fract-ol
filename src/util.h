@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:28:59 by hroxo             #+#    #+#             */
-/*   Updated: 2025/11/03 12:32:02 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/11/03 13:33:06 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include "../minilibx-linux/mlx.h"
 # include "/home/hroxo/lib/libft.h"
 
-# define WIDTH 1920
-# define HEIGHT 1080
+# define WIDTH 800
+# define HEIGHT 800
 # define ER_M "Wrong input use --help to view options\n"
 
 typedef struct s_img

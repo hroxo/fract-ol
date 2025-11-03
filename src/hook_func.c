@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 10:04:48 by hroxo             #+#    #+#             */
-/*   Updated: 2025/11/03 12:13:02 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/11/03 14:39:04 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int	handle_key_input(int keysym, t_fractol *fractol)
 	else if (keysym == Q)
 		data_init(fractol);
 	else if (keysym == A_UP)
-		fractol->bound.y_shift -= (0.5 * fractol->bound.zoom);
+		fractol->bound.y_shift -= (0.5 * fractol->bound.max);
 	else if (keysym == A_DW)
-		fractol->bound.y_shift += (0.5 * fractol->bound.zoom);
+		fractol->bound.y_shift += (0.5 * fractol->bound.max);
 	else if (keysym == A_RH)
-		fractol->bound.x_shift += (0.5 * fractol->bound.zoom);
+		fractol->bound.x_shift += (0.5 * fractol->bound.max);
 	else if (keysym == A_LF)
-		fractol->bound.x_shift -= (0.5 * fractol->bound.zoom);
+		fractol->bound.x_shift -= (0.5 * fractol->bound.max);
 	render_fractol(fractol);
 	return (0);
 }
@@ -42,20 +42,20 @@ int	handle_mouse_input(
 	{
 		fractol->bound.x_shift += update_axis(xaxis_mouse, fractol, WIDTH);
 		fractol->bound.y_shift += update_axis(yaxis_mouse, fractol, HEIGHT);
-		fractol->bound.zoom /= 2;
-		fractol->bound.iter += 25;
+		fractol->bound.min /= 2;
+		fractol->bound.max /= 2;
 	}
 	else if (SCROLL_DW == button)
 	{
 		fractol->bound.x_shift -= update_axis(xaxis_mouse, fractol, WIDTH);
 		fractol->bound.y_shift -= update_axis(yaxis_mouse, fractol, HEIGHT);
-		fractol->bound.zoom *= 2;
-		fractol->bound.iter -= 25;
+		fractol->bound.min *= 2;
+		fractol->bound.max *= 2;
 	}
 	else if (MOUSE_RH == button)
-		fractol->bound.iter += 50;
+		fractol->bound.iter *= 2;
 	else if (MOUSE_LF == button)
-		fractol->bound.iter -= 50;
+		fractol->bound.iter /= 2;
 	render_fractol(fractol);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 19:38:25 by hroxo             #+#    #+#             */
-/*   Updated: 2025/11/03 12:59:57 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/11/03 14:33:04 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	calc_z(t_complex *z, t_complex *c)
 	double	temp_z;
 
 	temp_z = (z->real * z->real) - (z->i * z->i) + c->real;
-	z->i = 2 * z->real * z->i + c->i;
+	z->i = (2 * z->real * z->i) + c->i;
 	z->real = temp_z;
 }
 

@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 10:52:00 by hroxo             #+#    #+#             */
-/*   Updated: 2025/11/03 13:10:24 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/11/03 14:36:47 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	ft_mandelbrot(t_complex *c, t_fractol *fractol, int x, int y)
 	t_complex	z;
 	int			i;
 
-	c->real = fractol->bound.zoom * map_values((double)x, fractol, WIDTH) + fractol->bound.x_shift;
-	c->i = fractol->bound.zoom * map_values((double)y, fractol, HEIGHT) + fractol->bound.y_shift;
+	c->real = map_values((double)x, fractol, WIDTH) + fractol->bound.x_shift;
+	c->i = map_values((double)y, fractol, HEIGHT) + fractol->bound.y_shift;
 	i = 0;
 	z.i = 0;
 	z.real = 0;
@@ -76,7 +76,7 @@ void	render_fractol(t_fractol *fractol)
 	t_complex	c;
 
 	y = 0;
-	while (y <= HEIGHT)
+	while (y < HEIGHT)
 	{
 		x = 0;
 		while (x < WIDTH)
