@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:28:59 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/31 15:28:59 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/11/03 11:11:19 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,15 @@ typedef struct s_complex
 typedef enum s_hooks
 {
 	SCROLL_UP = 4,
-	SCROLL_DW = 5
+	SCROLL_DW = 5,
+	MOUSE_RH = 3,
+	MOUSE_LF = 1,
+	ESC = 65307,
+	Q = 113,
+	A_UP = 65362,
+	A_DW = 65364,
+	A_LF = 65361,
+	A_RH = 65363
 }	t_hooks;
 
 typedef struct s_bound
@@ -80,5 +88,6 @@ double	map_values(double value, t_fractol *fractol, double old_max);
 void	data_init(t_fractol *fractol);
 void	ft_mandelbrot(t_complex *c, t_fractol *fractol, int x, int y);
 void	display_help(void);
+int get_color(t_fractol *fractol, int iter, int max_iter);
 
 #endif

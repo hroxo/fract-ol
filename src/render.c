@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 10:52:00 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/31 15:03:35 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/11/03 11:20:36 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,12 @@ void	ft_mandelbrot(t_complex *c, t_fractol *fractol, int x, int y)
 		if ((z.real * z.real) + (z.i * z.i)
 			> (fractol->bound.esc * fractol->bound.esc))
 		{
-			my_mlx_pixel_put(fractol, x, y,
-				encode_color(i, i * i, i * i * i));
+			my_mlx_pixel_put(fractol, x, y, encode_color(i * i, i, i * i / fractol->bound.iter));
 			return ;
 		}
 		i++;
 	}
-	my_mlx_pixel_put(fractol, x, y,
-		encode_color(0xff / 8, 0, 0xff / 8));
+	my_mlx_pixel_put(fractol, x, y, encode_color(0xff / 8, 0, 0xff / 8));
 }
 
 void	render_fractol(t_fractol *fractol)

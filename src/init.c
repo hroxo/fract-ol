@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 21:11:43 by hroxo             #+#    #+#             */
-/*   Updated: 2025/10/31 15:00:00 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/11/03 10:21:31 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	data_init(t_fractol *fractol)
 {
 	fractol->bound.max = 2;
 	fractol->bound.min = -2;
-	fractol->bound.esc = fractol->bound.max;
-	fractol->bound.iter = 100;
+	fractol->bound.esc = 2;
+	fractol->bound.iter = 75;
 	fractol->bound.y_shift = 0;
 	fractol->bound.x_shift = 0;
 }
